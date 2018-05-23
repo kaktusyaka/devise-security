@@ -27,7 +27,7 @@ module Devise
 
           # validate login in a strict way if not yet validated
           unless has_uniqueness_validation_of_login?
-            validation_condition = "#{login_attribute}_changed?".to_sym
+            validation_condition = "saved_change_to_#{login_attribute}?".to_sym
 
             validates login_attribute, uniqueness: {
                                           scope:          authentication_keys[1..-1],
