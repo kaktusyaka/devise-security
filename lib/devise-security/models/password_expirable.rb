@@ -50,7 +50,7 @@ module Devise
 
         # is password changed then update password_cahanged_at
         def update_password_changed
-          self.password_changed_at = Time.now if (self.new_record? || self.encrypted_password_changed?) && !self.password_changed_at_changed?
+          self.password_changed_at = Time.now if (self.new_record? || self.saved_change_to_encrypted_password?) && !self.password_changed_at_changed?
         end
 
         def expired_password_after_numeric?
